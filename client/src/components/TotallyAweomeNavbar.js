@@ -5,8 +5,8 @@ function TotallyAwesomeNavbar()
 {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: "10px"}}>
+                <Navbar.Brand href="/">Aninder</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
