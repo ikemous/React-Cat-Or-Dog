@@ -16,6 +16,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ticketing_syste
   console.log("Connection To Database Successful!");
 });
 
+server.use(require("./routes/api-routes.js"));
+
 // Send every request to the React app
 // Define any API routes before this runs
 server.get("*", function(req, res) {
