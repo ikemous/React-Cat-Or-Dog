@@ -18,7 +18,9 @@ function SwipingPage()
         }
         else
         {
-
+            API.randomDog()
+            .then(({data:dog}) => console.log(dog))
+            .catch(error => console.log(error));
         }
 
     }, [animal]);
@@ -27,7 +29,7 @@ function SwipingPage()
         <>
             <Container>
                 <Row>
-                    <ProfileCard />
+                    <ProfileCard animal={animal} setAnimal={setAnimal} />
                 </Row>
             </Container>
         </>
