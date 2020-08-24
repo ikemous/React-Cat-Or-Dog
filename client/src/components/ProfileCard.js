@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
 import logo from "../logo.svg"
 import LikeOrDislikeForm from "./LikeOrDislikeForm.js"
 
-function ProfileCard()
+function ProfileCard({ animal, setUserAction })
 {
+
     return (
         <Card>
-            <Card.Img variant="top" src={logo} />
+            <Card.Img variant="top" src={animal.url?animal.url:animal.message} />
             <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>

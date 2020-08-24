@@ -6,6 +6,7 @@ import ProfileCard from "../components/ProfileCard.js";
 function SwipingPage()
 {
     const [animal, setAnimal] = useState({});
+    const [userAction, setUserAction] = useState(false)
     
     useEffect(() => {
         const randomNumber = Math.floor(Math.random() * 2);
@@ -13,23 +14,23 @@ function SwipingPage()
         if(randomNumber === 0)
         {
             API.randomCat()
-            .then(({ data:cat }) => console.log(cat))
+            .then(({ data:cat }) => setAnimal(cat))
             .catch(error => console.log(error));    
         }
         else
         {
             API.randomDog()
-            .then(({data:dog}) => console.log(dog))
+            .then(({data:dog}) => setAnimal(dog))
             .catch(error => console.log(error));
         }
 
-    }, [animal]);
+    }, [userAction]);
 
     return (
         <>
             <Container>
                 <Row>
-                    <ProfileCard animal={animal} setAnimal={setAnimal} />
+                    <ProfileCard animal={animal} setUserAction={setUserAction} />
                 </Row>
             </Container>
         </>
