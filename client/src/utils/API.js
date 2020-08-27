@@ -7,6 +7,10 @@ export default {
     },
     randomDog() 
     {
-        return axios.get("dogs/random");
+        return axios.get("/dogs/random");
     },
+    randomInformation()
+    {
+        return axios.get("/animal/information");
+    }
 };

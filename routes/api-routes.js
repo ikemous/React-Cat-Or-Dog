@@ -21,4 +21,30 @@ router.get("/dogs/random", (req, res) => {
     })
 });
 
+router.get("/animal/information", (req, res) => {
+    console.log("API REQUEST");
+    axios.get("https://randomuser.me/api/", { headers: {
+        'Content-Length': 0,
+        'Content-Type': ['text/plain', "application/json"]
+    }})
+      .then(({data:information})=> {
+        console.log(information);
+        return res.json(information)
+      })
+      .catch(error => {
+        console.log("timed OUt");
+        console.log(error);
+        return res.json(error)
+      });
+    // axios.get("https://randomuser.me/api/", {timeout: 10000})
+    // .then(({data:information})=> {
+    //     console.log(information);
+    //     return res.json(information)
+    // })
+    // .catch(error => {
+    //     console.log("timed OUt")
+    //     return res.json(error)
+    // });
+});
+
 module.exports = router;
