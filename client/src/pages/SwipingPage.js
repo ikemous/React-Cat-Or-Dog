@@ -11,27 +11,30 @@ function SwipingPage()
     const [userAction, setUserAction] = useState(false)
     
     useEffect(() => {
-        const randomNumber = Math.floor(Math.random() * 2);
-        API.randomInformation()
-        .then(async ({data: randomInfo}) => {
-            await setInformation(randomInfo.results[0]);
-            await setInformationSeed(randomInfo.info.seed);
-            if(randomNumber === 0)
-            {
-                API.randomCat()
-                .then(({ data:cat }) => setAnimal(cat))
-                .catch(error => console.log(error));    
-            }
-            else
-            {
-                API.randomDog()
-                .then(({data:dog}) => setAnimal(dog))
-                .catch(error => console.log(error));
-            }
-        })
+        API.randomProfile()
+        .then(({data: profileInfo}) => setInformation(profileInfo))
         .catch(error => console.log(error));
+        // const randomNumber = Math.floor(Math.random() * 2);
+        // API.randomInformation()
+        // .then(async ({data: randomInfo}) => {
+        //     await setInformation(randomInfo.results[0]);
+        //     await setInformationSeed(randomInfo.info.seed);
+        //     if(randomNumber === 0)
+        //     {
+        //         API.randomCat()
+        //         .then(({ data:cat }) => setAnimal(cat))
+        //         .catch(error => console.log(error));    
+        //     }
+        //     else
+        //     {
+        //         API.randomDog()
+        //         .then(({data:dog}) => setAnimal(dog))
+        //         .catch(error => console.log(error));
+        //     }
+        // })
+        // .catch(error => console.log(error));
     }, [userAction]);
-
+    useEffect(() => console.log(information),[information]);
     return (
         <>
             <Container>
