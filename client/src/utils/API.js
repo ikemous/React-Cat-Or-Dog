@@ -12,5 +12,8 @@ export default {
     randomInformation()
     {
         return axios.get("/animal/information");
+    },
+    randomProfile() {
+        return axios.get("/profile");
     }
 };
