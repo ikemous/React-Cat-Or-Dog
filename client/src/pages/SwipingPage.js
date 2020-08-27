@@ -7,13 +7,15 @@ function SwipingPage()
 {
     const [animal, setAnimal] = useState({});
     const [information, setInformation] = useState({});
+    const [informatinSeed, setInformationSeed] = useState({});
     const [userAction, setUserAction] = useState(false)
     
     useEffect(() => {
         const randomNumber = Math.floor(Math.random() * 2);
         API.randomInformation()
-        .then(({data: randomInfo}) => {
-            setInformation(randomInfo);
+        .then(async ({data: randomInfo}) => {
+            await setInformation(randomInfo.results[0]);
+            await setInformationSeed(randomInfo.info.seed);
             if(randomNumber === 0)
             {
                 API.randomCat()
@@ -30,7 +32,6 @@ function SwipingPage()
         .catch(error => console.log(error));
     }, [userAction]);
 
-    useEffect(() => console.log(information), [information]);
     return (
         <>
             <Container>
