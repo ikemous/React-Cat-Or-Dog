@@ -7,12 +7,12 @@ function SwipingPage()
 {
     const [animal, setAnimal] = useState({});
     const [information, setInformation] = useState({});
-    const [informatinSeed, setInformationSeed] = useState({});
+    // const [informatinSeed, setInformationSeed] = useState({});
     const [userAction, setUserAction] = useState(false)
     
     useEffect(() => {
         API.randomProfile()
-        .then(({data: profileInfo}) => setInformation(profileInfo))
+        .then(({data: profileInfo}) => setAnimal(profileInfo))
         .catch(error => console.log(error));
         // const randomNumber = Math.floor(Math.random() * 2);
         // API.randomInformation()

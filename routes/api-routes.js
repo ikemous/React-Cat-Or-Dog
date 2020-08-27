@@ -20,8 +20,10 @@ router.get("/profile", (req, res) => {
             'Content-Type': ['text/plain', "application/json"]
         }})
           .then(({data:information})=> {
+            console.log(information.results[0].dob);
             profileInformation = {
                 ...profileInformation,
+                age: information.results[0].dob.age,
                 gender: information.results[0].gender,
                 city: information.results[0].location.city,
                 country: information.results[0].location.country,
