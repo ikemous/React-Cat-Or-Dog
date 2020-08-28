@@ -1,6 +1,17 @@
 const router = require("express").Router();
 const axios = require("axios");
 
+router.get("/joke", (req, res) => {
+    axios.get("https://icanhazdadjoke.com/slack")
+    .then(joke => {
+        console.log(joke.data.attachments[0].text);
+        res.json(joke.data.attachments[0].text);
+    })
+    .catch(error => {
+        res.json(error);
+    });
+})
+
 router.get("/profile", (req, res) => {
     let profileInformation = {};
     const randomNumber = Math.floor(Math.random() * 2);
@@ -8,9 +19,7 @@ router.get("/profile", (req, res) => {
     randomNumber===1? initialQuery="https://api.thecatapi.com/v1/images/search":initialQuery="https://dog.ceo/api/breeds/image/random";
     axios.get(initialQuery)
     .then(({ data }) => {
-        console.log(data);
         let image;
-        console.log(randomNumber);
         randomNumber===1?image=data[0].url:image=data.message;
         profileInformation = {
             imageUrl: image,
@@ -20,7 +29,6 @@ router.get("/profile", (req, res) => {
             'Content-Type': ['text/plain', "application/json"]
         }})
           .then(({data:information})=> {
-            console.log(information.results[0].dob);
             profileInformation = {
                 ...profileInformation,
                 age: information.results[0].dob.age,
@@ -32,63 +40,21 @@ router.get("/profile", (req, res) => {
                 last: information.results[0].name.last,
                 profileSeed: information.info.seed,
             };
-            console.log(profileInformation);
-            res.json(profileInformation);
+            axios.get("https://icanhazdadjoke.com/slack")
+            .then(joke => {
+                profileInformation = {
+                    ...profileInformation,
+                    bio: joke.data.attachments[0].text
+                };
+                res.json(profileInformation);
+            })
+            .catch(error => {
+                res.json(error);
+            });
           })
-          .catch(error => {
-            console.log(error);
-            res.json(error)
-          });
+          .catch(error => res.json(error));
     })
-    .catch( error => {
-        console.log(error);
-        res.json(error);
-    });
-});
-
-router.get("/cats/random", (req, res) => {
-    axios.get("https://api.thecatapi.com/v1/images/search")
-    .then(({ data }) => {
-        res.json(data[0]);
-    })
-    .catch( error => {
-        res.json(error);
-    });
-});
-
-router.get("/dogs/random", (req, res) => {
-    axios.get("https://dog.ceo/api/breeds/image/random")
-    .then(({ data: dog }) => {
-        res.json(dog);
-    })
-    .catch(error => {
-        req.json(error);
-    })
-});
-
-router.get("/animal/information", (req, res) => {
-    axios.get("https://randomuser.me/api/", { headers: {
-        'Content-Length': 0,
-        'Content-Type': ['text/plain', "application/json"]
-    }})
-      .then(({data:information})=> {
-        console.log(information);
-        return res.json(information)
-      })
-      .catch(error => {
-        console.log("timed OUt");
-        console.log(error);
-        return res.json({})
-      });
-    // axios.get("https://randomuser.me/api/", {timeout: 10000})
-    // .then(({data:information})=> {
-    //     console.log(information);
-    //     return res.json(information)
-    // })
-    // .catch(error => {
-    //     console.log("timed OUt")
-    //     return res.json(error)
-    // });
+    .catch( error => res.json(error));
 });
 
 module.exports = router;
