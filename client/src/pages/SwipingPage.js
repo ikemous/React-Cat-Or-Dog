@@ -24,7 +24,7 @@ function SwipingPage()
     return (
         <>
             <Container>
-                <Row>
+                <Row style={{height: "calc(100vh - 80px)"}}>
                     <ProfileCard animal={animal} handleClick={handleClick} />
                 </Row>
             </Container>
