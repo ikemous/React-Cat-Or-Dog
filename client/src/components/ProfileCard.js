@@ -13,7 +13,7 @@ function ProfileCard({ animal, handleClick })
             <Card.ImgOverlay className="imageOverlay">
                 <Card.Title style={{color:"white"}}>{animal.city?`${animal.city}, ${animal.country}`:"Loading"}</Card.Title>
             </Card.ImgOverlay>
-            <Card.Body>
+            <Card.Body className="profileBody">
                 <Card.Title>
                     {animal.title?`${animal.title}. ${animal.first} ${animal.last}` : "Loading Name"}
                 </Card.Title>
@@ -21,10 +21,8 @@ function ProfileCard({ animal, handleClick })
                 <Card.Text>
                     {animal.bio || "Loading Bio"}
                 </Card.Text>
-            </Card.Body>
-            <Card.Body>
-                <Button name="left" onClick={handleClick}>Left</Button>
-                <Button name="right" onClick={handleClick}>Right</Button>
+                <Button className="leftButton" name="left" onClick={handleClick}>Left</Button>
+                <Button className="rightButton" name="right" onClick={handleClick}>Right</Button>
             </Card.Body>
         </Card>
     )

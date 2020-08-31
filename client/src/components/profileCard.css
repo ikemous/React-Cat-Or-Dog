@@ -8,10 +8,26 @@
 }
 
 .profileImage {
-    height: 60vh;
+    height: calc(70vh - 80px);
     object-fit: cover;
 }
 
 .imageOverlay {
-    height: 60vh;
+    height: 50vh;
+}
+
+.profileBody {
+    height: calc(30vh - 80px);
+}
+
+.leftButton {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+.rightButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }

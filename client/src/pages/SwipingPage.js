@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API.js";
 import { Container, Row } from "react-bootstrap";
 import ProfileCard from "../components/ProfileCard.js";
+import "./swipingPage.css";
 
 function SwipingPage()
 {
