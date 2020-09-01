@@ -10,8 +10,8 @@ function TotallyAwesomeNavbar()
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#features">Login</Nav.Link>
-                        <Nav.Link href="#pricing">Signup</Nav.Link>
+                        <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link href="/signup">Signup</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
