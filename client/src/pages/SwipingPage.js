@@ -7,18 +7,21 @@ import "./swipingPage.css";
 function SwipingPage()
 {
     const [animal, setAnimal] = useState({});
-    const [userAction, setUserAction] = useState(false)
     
-    useEffect(() => {
+    const queryNewProfile = () => {
         API.randomProfile()
         .then(({data: profileInfo}) => setAnimal(profileInfo))
         .catch(error => console.log(error));
-    }, [userAction]);
+    }
+
+    useEffect(() => {
+        queryNewProfile();
+    }, []);
 
     const handleClick = ({target}) => {
         console.log(target.name);
-        if( target.name === "left") return setUserAction(false);
-        setUserAction(true);
+        if( target.name === "left") return queryNewProfile();
+        queryNewProfile();
     };
 
     return (
