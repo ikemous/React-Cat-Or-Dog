@@ -2,19 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
-function TotallyCoolAuthentication({ signup }) {
+function TotallyCoolAuthentication({ signup, errors, handleChange }) {
     return (
         <>
             <Form className="col-sm-8">
                 <h1 style={{textAlign:"center"}}>{signup?"Signup":"Login"}</h1>
                 <Form.Group controlId="email">
                     <Form.Label>Email Address:</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" name="email" placeholder="Enter email" onChange={handleChange} />
                 </Form.Group>
 
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" name="password" placeholder="Password" onChange={handleChange} />
                 </Form.Group>
                 <Form.Group style={{textAlign: "center"}} >
                     <Button style={{width: "100%"}} variant="primary" type="submit">
