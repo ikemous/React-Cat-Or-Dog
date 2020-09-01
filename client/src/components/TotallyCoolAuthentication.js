@@ -18,11 +18,11 @@ function TotallyCoolAuthentication({ signup }) {
                 </Form.Group>
                 <Form.Group style={{textAlign: "center"}} >
                     <Button style={{width: "100%"}} variant="primary" type="submit">
-                        Submit
+                        {signup? "Signup":"Login"}
                     </Button>
                 </Form.Group>
                 <small style={{textAlign: "center"}}>
-                    Need To {signup?"Login":"Signup"}? {signup?<Link to="/login">click here</Link>:<Link to="/signup">click here</Link>}
+                    {signup?"Already Have An Account":"Need To Login"}? {signup?<Link to="/login">click here</Link>:<Link to="/signup">click here</Link>}
                 </small>
             </Form>
         </>
