@@ -12,14 +12,18 @@
     object-fit: cover;
 }
 
-.imageOverlay {
-    height: 50vh;
-}
-
 .profileBody {
     height: calc(30vh - 80px);
 }
 
+.city {
+    color:white;
+    font-weight: bolder;
+}
+
+.imageOverlay {
+    height: 50vh;
+}
 .leftButton {
     position: absolute;
     bottom: 5px;

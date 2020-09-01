@@ -15,11 +15,10 @@ function SwipingPage()
         .catch(error => console.log(error));
     }, [userAction]);
 
-    useEffect(() => console.log(animal),[animal]);
-
     const handleClick = ({target}) => {
         console.log(target.name);
-        if( target.name === "left") return setUserAction(true);
+        if( target.name === "left") return setUserAction(false);
+        setUserAction(true);
     };
 
     return (

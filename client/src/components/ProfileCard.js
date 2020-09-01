@@ -11,7 +11,7 @@ function ProfileCard({ animal, handleClick })
         <Card className="profileCard">
             <Card.Img className="profileImage" variant="top" src={animal.imageUrl || "https://via.placeholder.com/450?text=Profile+Image"} />
             <Card.ImgOverlay className="imageOverlay">
-                <Card.Title style={{color:"white"}}>{animal.city?`${animal.city}, ${animal.country}`:"Loading"}</Card.Title>
+                <Card.Title className="city">{animal.city?`${animal.city}, ${animal.country}`:"Loading"}</Card.Title>
             </Card.ImgOverlay>
             <Card.Body className="profileBody">
                 <Card.Title>
