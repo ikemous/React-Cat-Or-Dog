@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
-function UserAuthentication() {
+function TotallyCoolAuthentication({ signup }) {
     return (
         <>
             <Form className="col-sm-8">
+                <h1 style={{textAlign:"center"}}>{signup?"Signup":"Login"}</h1>
                 <Form.Group controlId="email">
                     <Form.Label>Email Address:</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
@@ -19,9 +21,12 @@ function UserAuthentication() {
                         Submit
                     </Button>
                 </Form.Group>
+                <small style={{textAlign: "center"}}>
+                    Need To {signup?"Login":"Signup"}? {signup?<Link to="/login">click here</Link>:<Link to="/signup">click here</Link>}
+                </small>
             </Form>
         </>
     )
 }
 
-export default UserAuthentication;
+export default TotallyCoolAuthentication;

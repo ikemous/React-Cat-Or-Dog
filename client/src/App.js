@@ -5,6 +5,7 @@ import SwipingPage from "./pages/SwipingPage.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import LoginPage from "./pages/LoginPage.js";
+import SignupPage from "./pages/SignupPage.js";
 
 function App()
 {
@@ -16,6 +17,7 @@ function App()
           <Route exact path="/" component={WelcomePage} />
           <Route exact path="/swipe" component={SwipingPage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignupPage} />
         </Switch>
       </Router>
     </>
