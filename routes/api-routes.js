@@ -1,17 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
 
-router.get("/joke", (req, res) => {
-    axios.get("https://icanhazdadjoke.com/slack")
-    .then(joke => {
-        console.log(joke.data.attachments[0].text);
-        res.json(joke.data.attachments[0].text);
-    })
-    .catch(error => {
-        res.json(error);
-    });
-})
-
 router.get("/profile", (req, res) => {
     let profileInformation = {};
     const randomNumber = Math.floor(Math.random() * 2);

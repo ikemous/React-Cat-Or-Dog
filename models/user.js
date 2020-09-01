@@ -31,14 +31,14 @@ const UserSchema = new Schema({
 });
 
 /**
- * beforeCreate()
+ * hashPassword()
  * Purpose: Encrypt the password using bcrypt
  * Parameters: None
- * Return: FullName
+ * Return: N/A
  */
 UserSchema.methods.hashPassword = function () {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), null);
-  }; //end beforeCreate()
+  }; //end hashPassword()
   
 /**
  * validPassword()
