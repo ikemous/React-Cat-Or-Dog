@@ -1,5 +1,4 @@
 const { User } = require("../models");
-const { userController } = require(".");
 
 module.exports = {
     create({ body }, res) {

@@ -18,7 +18,7 @@ function TotallyCoolAuthentication({ signup, passwordError, emailError, handleCh
                         onChange={handleChange} 
                     />
                     <Form.Control.Feedback type="invalid">
-                        Email invalid or already used
+                        {!signup?"": "Email invalid or already used" }
                     </Form.Control.Feedback>
                 </Form.Group>
 
@@ -32,7 +32,7 @@ function TotallyCoolAuthentication({ signup, passwordError, emailError, handleCh
                         onChange={handleChange} 
                     />
                     <Form.Control.Feedback type="invalid">
-                        Password must be longer than 6 characters
+                        {!signup?"Email or Password may be incorrect": "Password must be longer than 6 characters"}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group style={{textAlign: "center"}} >

@@ -14,11 +14,10 @@ function SignupPage() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
         API.createUser(userInfo)
         .then(result => console.log(result))
         .catch(({response}) => {
-            console.log(response)
-            console.log(response.data)
             if(response.data.errors)
             {
                 if(response.data.errors.email) setEmailError(response.data.errors.email);
@@ -42,7 +41,8 @@ function SignupPage() {
                     handleChange={handleChange} 
                     passwordError={passwordError} 
                     emailError={emailError} 
-                    handleSubmit={handleSubmit} />
+                    handleSubmit={handleSubmit}
+                />
             </Row>
         </Container>
     )
