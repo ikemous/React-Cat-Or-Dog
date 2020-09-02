@@ -23,12 +23,23 @@ const UserSchema = new Schema({
     password: {
         type: String,
         trim: true,
-        validate: [({ length }) => length >= 6, "Password Needs To Be Greater Than 6 characters"],
+        required: true,
+        validate: [({length}) => length >= 6, "Password Needs To Be Greater Than 6 characters"],
     },
     matches : {
         type: Array
     }
 });
+
+/**
+ * pre()
+ * Purpose: Encrypt the password using bcrypt
+ * Parameters: None
+ * Return: N/A
+ */
+UserSchema.pre('save', function(){
+    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), null);
+});//end pre()
 
 /**
  * hashPassword()
@@ -38,7 +49,7 @@ const UserSchema = new Schema({
  */
 UserSchema.methods.hashPassword = function () {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), null);
-  }; //end hashPassword()
+}; //end hashPassword()
   
 /**
  * validPassword()

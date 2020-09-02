@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
-function TotallyCoolAuthentication({ signup, errors, handleChange }) {
+function TotallyCoolAuthentication({ signup, errors, handleChange, handleSubmit }) {
     return (
         <>
             <Form className="col-sm-8">
@@ -17,7 +17,7 @@ function TotallyCoolAuthentication({ signup, errors, handleChange }) {
                     <Form.Control type="password" name="password" placeholder="Password" onChange={handleChange} />
                 </Form.Group>
                 <Form.Group style={{textAlign: "center"}} >
-                    <Button style={{width: "100%"}} variant="primary" type="submit">
+                    <Button onClick={handleSubmit} style={{width: "100%"}} variant="primary" type="submit">
                         {signup? "Signup":"Login"}
                     </Button>
                 </Form.Group>

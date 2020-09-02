@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export default {
+    createUser(userInfo) {
+        return axios.post("/user/signup", userInfo);
+    },
     randomCat()
     {
         return axios.get("/cats/random");

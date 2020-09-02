@@ -7,7 +7,7 @@ function LoginPage() {
     const [userInfo, setUserInfo] = useState({});
 
     const handleChange = ({ target }) => {
-        setUserInfo(...userInfo, [target.name])
+        setUserInfo({...userInfo, [target.name]: target.value});
     };
 
     return (

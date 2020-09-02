@@ -3,9 +3,7 @@ const { userController } = require(".");
 
 module.exports = {
     create({ body }, res) {
-        const newAccount = new User(body);
-        newAccount.hashPassword();
-        User.create(newAccount)
+        User.create(body)
         .then(() => {
             res.redirect(307, "/user/login")
         })
