@@ -4,7 +4,8 @@ import TotallyCoolAuthentication from "../components/TotallyCoolAuthentication.j
 import { Container, Row } from "react-bootstrap";
 
 function SignupPage() {
-    const [errors, setErrors] = useState({});
+    const [emailError, setEmailError] = useState();
+    const [passwordError, setPasswordError] = useState();
     const [userInfo, setUserInfo] = useState({});
 
     const handleChange = ({ target }) => {
@@ -15,13 +16,37 @@ function SignupPage() {
         event.preventDefault();
         API.createUser(userInfo)
         .then(result => console.log(result))
-        .catch(({response}) => console.log(response.data));
+        .catch(({response}) => {
+            console.log(response)
+            console.log(response.data)
+            if(response.data.errors)
+            {
+                if(response.data.errors.email) setEmailError(response.data.errors.email);
+                else setEmailError(false);
+                if(response.data.errors.password) setPasswordError(response.data.errors.password);
+                else setPasswordError(false);
+            }
+            else
+            {
+                setEmailError(true);
+                setPasswordError(false);
+            }
+            // if(response.data.errors.email) setEmailError(response.data.errors.email);
+            // else setEmailError();
+            // if(response.data.errors.password) setPasswordError(response.data.errors.password);
+            // else setPasswordError();
+        });
     };
 
     return (
         <Container style={{height: "calc(100vh - 56px)"}}>
             <Row style={{height: "inherit"}} className="align-items-center justify-content-center">
-                <TotallyCoolAuthentication signup={true} handleChange={handleChange} errors={errors} handleSubmit={handleSubmit} />
+                <TotallyCoolAuthentication 
+                    signup={true} 
+                    handleChange={handleChange} 
+                    passwordError={passwordError} 
+                    emailError={emailError} 
+                    handleSubmit={handleSubmit} />
             </Row>
         </Container>
     )

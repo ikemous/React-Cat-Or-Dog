@@ -6,7 +6,6 @@ import LikeOrDislikeForm from "./LikeOrDislikeForm.js"
 
 function ProfileCard({ animal, handleClick })
 {
-    useEffect(() => console.log(animal), [animal]);
     return (
         <Card className="profileCard">
             <Card.Img className="profileImage" variant="top" src={animal.imageUrl || "https://via.placeholder.com/450?text=Profile+Image"} />
