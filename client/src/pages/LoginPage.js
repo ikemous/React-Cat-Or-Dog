@@ -3,7 +3,7 @@ import API from "../utils/API.js";
 import TotallyCoolAuthentication from "../components/TotallyCoolAuthentication.js"
 import { Container, Row } from "react-bootstrap";
 
-function LoginPage() {
+function LoginPage({ setUser }) {
     
     const [emailError, setEmailError] = useState();
     const [passwordError, setPasswordError] = useState();
@@ -12,11 +12,11 @@ function LoginPage() {
     const handleChange = ({ target }) => {
         setUserInfo({...userInfo, [target.name]: target.value});
     };
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         API.loginUser(userInfo)
-        .then(result => console.log(result))
+        .then(({data}) => setUser(data))
         .catch(({response}) => {
             if(response.data.errors)
             {

@@ -7,6 +7,9 @@ export default {
     loginUser(userInfo) {
         return axios.post("/user/login", userInfo);
     },
+    verifyUser() {
+        return axios.get("/user/verify");
+    },
     randomProfile() {
         return axios.get("/profile");
     }
