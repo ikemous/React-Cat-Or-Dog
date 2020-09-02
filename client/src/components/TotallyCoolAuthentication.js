@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
 function TotallyCoolAuthentication({ signup, passwordError, emailError, handleChange, handleSubmit }) {
-
-    useEffect(() =>{ console.log(passwordError)}, [passwordError])
-    useEffect(() =>{ console.log(emailError)}, [emailError])
-
 
     return (
         <>
