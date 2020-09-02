@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import API from "../utils/API.js";
 import TotallyCoolAuthentication from "../components/TotallyCoolAuthentication.js"
 import { Container, Row } from "react-bootstrap";
@@ -31,10 +31,6 @@ function SignupPage() {
                 setEmailError(true);
                 setPasswordError(false);
             }
-            // if(response.data.errors.email) setEmailError(response.data.errors.email);
-            // else setEmailError();
-            // if(response.data.errors.password) setPasswordError(response.data.errors.password);
-            // else setPasswordError();
         });
     };
 

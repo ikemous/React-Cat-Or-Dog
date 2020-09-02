@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import { Card, Row, Col, Button } from "react-bootstrap";
+import React from "react";
+import { Card, Button } from "react-bootstrap";
 import "./profileCard.css";
-import logo from "../logo.svg"
-import LikeOrDislikeForm from "./LikeOrDislikeForm.js"
 
 function ProfileCard({ animal, handleClick })
 {

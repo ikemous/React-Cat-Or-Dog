@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonGroup, Button, Row, Col } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 
 function LikeOrDislikeForm()
 {
