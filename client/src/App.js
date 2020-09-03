@@ -21,8 +21,6 @@ function App()
     .catch(error => console.log(error));
   },[]);
 
-  useEffect(() => console.log(user), [user]);
-
   return (
     <>
       <Router>

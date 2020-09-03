@@ -26,9 +26,6 @@ function SwipingPage({ user })
     useEffect(() => {
         queryNewProfile();
     }, []);
-    useEffect(() => {
-        console.log(user);
-    }, []);
 
     const handleClick = ({target}) => {
         console.log(target.name);
