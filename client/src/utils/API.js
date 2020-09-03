@@ -10,6 +10,9 @@ export default {
     verifyUser() {
         return axios.get("/user/verify");
     },
+    logoutUser() {
+        return axios.get("/user/signout");
+    },
     randomProfile() {
         return axios.get("/profile");
     }

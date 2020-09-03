@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "./utils/API.js";
-import TotallyAwesomeNavbar from "./components/TotallyAweomeNavbar.js";
+import TotallyAwesomeNavbar from "./components/TotallyAwesomeNavbar.js";
 import WelcomePage from "./pages/WelcomePage.js";
 import SwipingPage from "./pages/SwipingPage.js";
 import { BrowserRouter as Router, Route, Switch, Redirect, useLocation } from "react-router-dom";
@@ -17,22 +17,30 @@ function App()
     API.verifyUser()
     .then(({data}) => setUser(data))
     .catch(error => console.log(error));
-  },[])
-  useEffect(() => console.log(window.location.pathname),[])
+  },[]);
+
   useEffect(() => console.log(user), [user]);
 
   return (
     <>
-      <TotallyAwesomeNavbar loggedIn={user?true:false}/>
       <Router>
+        <TotallyAwesomeNavbar loggedIn={user?true:false} />
         <Switch>
-          <Route exact path="/" component={WelcomePage} />
-          <Route exact path="/swipe" component={SwipingPage} />
+          <Route exact path={["/", "/home"]}component={WelcomePage} />
           <Route exact path="/login">
             {user? <Redirect to="/swipe" /> : <LoginPage setUser={setUser} />}
           </Route>
           <Route exact path="/signup">
             {user? <Redirect to="/swipe" />: <SignupPage setUser={setUser} />}
+          </Route>
+          <Route exact path="/swipe">
+            {user? <SwipingPage />: <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/profile/settings">
+            {user? <SwipingPage />: <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/profile/friends">
+            {user? <SwipingPage />: <Redirect to="/login" />}
           </Route>
         </Switch>
       </Router>
