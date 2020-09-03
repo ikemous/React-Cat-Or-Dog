@@ -11,14 +11,20 @@ module.exports = {
         });
     },
     updateFriends({body}, res) {
+        console.log(body);
         User.findByIdAndUpdate(
             { _id: body._id},
             {$push: { matches: body.animal }}
         )
         .then(result => {
             console.log(result);
+            console.log("updated");
             res.json(result)
         })
-        .catch(error => res.json(error));
+        .catch(error => {
+            console.log(error);
+            console.log("notUpdated");
+            res.json(error)
+        });
     },
 }

@@ -4,7 +4,7 @@ const { userController } = require("../controllers");
 
 router.route("/user/signup").post(userController.create);
 
-router.route("/user/update").put(userController.updateFriends);
+router.route("/user/add/friend").put(userController.updateFriends);
 
 router.post("/user/login", passport.authenticate("local"), ({ user }, res) => {
     if (user) return res.json({status: "Logged in", email: user[0].email, _id: user[0]._id});

@@ -4,7 +4,7 @@ import { Container, Row } from "react-bootstrap";
 import ProfileCard from "../components/ProfileCard.js";
 import "./swipingPage.css";
 
-function SwipingPage()
+function SwipingPage({ user })
 {
     const [animal, setAnimal] = useState({});
     
@@ -14,6 +14,16 @@ function SwipingPage()
         .catch(error => console.log(error));
     }
 
+    const addFriend = () => {
+        const information = {
+            _id: user._id,
+            "animal": {...animal}
+        }
+        API.addFriend(information)
+        .then(result => console.log(result))
+        .catch(error => console.log(error));
+    };
+
     useEffect(() => {
         queryNewProfile();
     }, []);
@@ -22,7 +32,10 @@ function SwipingPage()
         console.log(target.name);
         if( target.name === "left") return queryNewProfile();
         const randomNumber = Math.floor(Math.random() * 5);
-        if ( randomNumber === 3) console.log("%c You've Been Friended!\n", "color:orange;")
+        if ( randomNumber === 3){ 
+            console.log("%c You've Been Friended!\n", "color:orange;");
+            addFriend();
+        }
         queryNewProfile();
     };
 

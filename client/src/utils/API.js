@@ -10,6 +10,10 @@ export default {
     verifyUser() {
         return axios.get("/user/verify");
     },
+    addFriend(information) {
+        console.log(information);
+        return axios.put("/user/add/friend", information);
+    },
     logoutUser() {
         return axios.get("/user/signout");
     },
