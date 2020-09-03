@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import API from "./utils/API.js";
 import TotallyAwesomeNavbar from "./components/TotallyAwesomeNavbar.js";
+import FriendsPage from "./pages/FriendsPage.js";
+import SettingsPage from "./pages/SettingsPage.js";
 import WelcomePage from "./pages/WelcomePage.js";
 import SwipingPage from "./pages/SwipingPage.js";
-import { BrowserRouter as Router, Route, Switch, Redirect, useLocation } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import LoginPage from "./pages/LoginPage.js";
 import SignupPage from "./pages/SignupPage.js";
+import "./App.css";
 
 function App()
 {
@@ -25,24 +27,24 @@ function App()
     <>
       <Router>
         <TotallyAwesomeNavbar loggedIn={user?true:false} />
-        <Switch>
-          <Route exact path={["/", "/home"]}component={WelcomePage} />
-          <Route exact path="/login">
-            {user? <Redirect to="/swipe" /> : <LoginPage setUser={setUser} />}
-          </Route>
-          <Route exact path="/signup">
-            {user? <Redirect to="/swipe" />: <SignupPage setUser={setUser} />}
-          </Route>
-          <Route exact path="/swipe">
-            {user? <SwipingPage />: <Redirect to="/login" />}
-          </Route>
-          <Route exact path="/profile/settings">
-            {user? <SwipingPage />: <Redirect to="/login" />}
-          </Route>
-          <Route exact path="/profile/friends">
-            {user? <SwipingPage />: <Redirect to="/login" />}
-          </Route>
-        </Switch>
+          <Switch>
+            <Route exact path={["/", "/home"]} component={WelcomePage} />
+            <Route exact path="/profile/settings">
+              {!user? <Redirect to="/login" />: <SettingsPage />}
+            </Route>
+            <Route exact path="/profile/friends">
+              {user? <FriendsPage />: <Redirect to="/login" />}
+            </Route>
+            <Route exact path="/swipe">
+              {user? <SwipingPage />: <Redirect to="/login" />}
+            </Route>
+            <Route exact path="/login">
+              {user? <Redirect to="/swipe" /> : <LoginPage setUser={setUser} />}
+            </Route>
+            <Route exact path="/signup">
+              {user? <Redirect to="/swipe" />: <SignupPage setUser={setUser} />}
+            </Route>
+          </Switch>
       </Router>
     </>
   )
