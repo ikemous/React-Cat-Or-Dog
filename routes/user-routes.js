@@ -11,7 +11,8 @@ router.post("/user/login", passport.authenticate("local"), ({ user }, res) => {
 });
 
 router.get("/user/verify", ({user}, res) => {
-    if(user) return res.json({status: "Logged in", email: user[0].email, _id: user[0]._id});
+    console.log(user);
+    if(user) return res.json({status: "Logged in", email: user[0].email, _id: user[0]._id, matches: user[0].matches});
     res.json(null);
 });
 

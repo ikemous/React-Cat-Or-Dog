@@ -20,12 +20,14 @@ function SwipingPage({ user })
             "animal": {...animal}
         }
         API.addFriend(information)
-        .then(result => console.log(result))
         .catch(error => console.log(error));
     };
 
     useEffect(() => {
         queryNewProfile();
+    }, []);
+    useEffect(() => {
+        console.log(user);
     }, []);
 
     const handleClick = ({target}) => {
