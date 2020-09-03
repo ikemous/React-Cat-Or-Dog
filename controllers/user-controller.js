@@ -11,7 +11,6 @@ module.exports = {
         });
     },
     updateFriends({body}, res) {
-        console.log(body);
         User.findByIdAndUpdate(
             { _id: body._id},
             {$push: { matches: body.animal }}
@@ -26,5 +25,10 @@ module.exports = {
             console.log("notUpdated");
             res.json(error)
         });
+    },
+    getUserFriends({ body }, res) {
+        User.findById({ _id: body._id})
+        .then(result => res.json(result.matches))
+        .catch(error => res.json(error));
     },
 }

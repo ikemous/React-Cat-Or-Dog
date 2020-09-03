@@ -33,7 +33,7 @@ function App()
               {!user? <Redirect to="/login" />: <SettingsPage />}
             </Route>
             <Route exact path="/profile/friends">
-              {user? <FriendsPage />: <Redirect to="/login" />}
+              {user? <FriendsPage user={user}/>: <Redirect to="/login" />}
             </Route>
             <Route exact path="/swipe">
               {user? <SwipingPage user={user} />: <Redirect to="/login" />}
