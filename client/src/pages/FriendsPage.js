@@ -17,23 +17,24 @@ function FriendsPage({ user }) {
     return (
         <Container>
             <Row>
-                <ListGroup>
+                <ListGroup style={{textAlign: "center"}}>
                     {friends.map(friend =>
                         <ListGroup.Item key={uuid()}>
-                            <Col xs={6} md={4}>
-                                <Image 
-                                    style={{maxWidth: "100%", minWidth: "100%"}} 
-                                    src={friend.imageUrl} 
-                                    roundedCircle     
-                                />
-                            </Col>
-                            <Col xs={6} md={4}>
-                                <h2>{friend.title}.{friend.first}</h2>
-                            </Col>
-                            <Col xs={6} md={4}>
-                                <h2>{friend.city}, {friend.country}</h2>
-                            </Col>
-
+                            <Row>
+                                <Col sm={12} md={4} lg={4}>
+                                    <Image 
+                                        style={{maxWidth: "100%", minWidth: "100%"}} 
+                                        src={friend.imageUrl} 
+                                        roundedCircle     
+                                    />
+                                </Col>
+                                <Col sm={12} md={4} lg={4}>
+                                    <h2>{friend.title}.{friend.first}</h2>
+                                </Col>
+                                <Col sm={12} md={4} lg={4}>
+                                    <h2>{friend.city}, {friend.country}</h2>
+                                </Col>
+                            </Row>
                         </ListGroup.Item>)
                     }
                 </ListGroup>
