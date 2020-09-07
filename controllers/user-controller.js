@@ -29,18 +29,17 @@ module.exports = {
             (err, doc) => {
                 if(err) return res.json(err);
                 for(let i = 0; i < doc.matches.length; i++)
-                    if(doc.matches[i]._id === body.animalId) return res.json(doc.matches[i]);
+                    if(doc.matches[i]._id === body.animalId)
+                        return res.json(doc.matches[i]);
             }
         )
     },
     deleteFriend({body}, res) {
         User.findByIdAndUpdate(
             {_id: body._id},
-            {$push: {"matches": body.animalId}},
-            (err, _) => {
-                if(err) return res.json(err);
-                res.json({"status": "Success!"});
-            }
+            {$pull: {"matches": {_id: body.animalId}}}
         )
+        .then(() => res.json({"status":"Sucess"}))
+        .catch(error => res.json(error));
     }
 }

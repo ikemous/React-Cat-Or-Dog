@@ -19,6 +19,9 @@ export default {
     getFriend(information) {
         return axios.post("/user/find/friend", information);
     },
+    deleteFriend(information) {
+        return axios.delete("/user/delete/friend", information);
+    },
     logoutUser() {
         return axios.get("/user/signout");
     },

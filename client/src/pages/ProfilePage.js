@@ -9,7 +9,7 @@ function ProfilePage({ user }) {
     const [animal, setAnimal] = useState({});
 
     useEffect(() => {
-        API.getFriend({_id: user._id, "animalId": animalID})
+        API.getFriend({_id: user._id, "animalId": animalID.id})
         .then(result => setAnimal(result.data))
         .catch(error => console.log(error));
     },[]);
@@ -18,6 +18,9 @@ function ProfilePage({ user }) {
     
     const handleClick = () => {
         console.log("Clicked");
+        API.deleteFriend({_id: user._id, "animalId": animalID.id})
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
     };
 
     return (
