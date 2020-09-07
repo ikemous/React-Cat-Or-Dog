@@ -10,6 +10,8 @@ router.route("/user/find/friends").post(userController.getUserFriends);
 
 router.route("/user/find/friend").post(userController.getUserFriend);
 
+router.route("/user/delete/friend").delete(userController.deleteFriend);
+
 router.post("/user/login", passport.authenticate("local"), ({ user }, res) => {
     if (user) return res.json({status: "Logged in", email: user[0].email, _id: user[0]._id});
 });
