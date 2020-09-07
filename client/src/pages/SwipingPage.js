@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import uuid from "react-uuid";
 import API from "../utils/API.js";
 import { Container, Row } from "react-bootstrap";
 import ProfileCard from "../components/ProfileCard.js";
@@ -15,9 +16,10 @@ function SwipingPage({ user })
     }
 
     const addFriend = () => {
+        const animalID = uuid();
         const information = {
             _id: user._id,
-            "animal": {...animal}
+            "animal": {...animal, _id: animalID}
         }
         API.addFriend(information)
         .catch(error => console.log(error));

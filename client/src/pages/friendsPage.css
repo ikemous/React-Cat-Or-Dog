@@ -1,0 +1,22 @@
+.friendName {
+    display: inline;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    top: 25%;
+    bottom: 25%;
+}
+
+.friendImage {
+    max-width: 25%;
+    max-height: 150px;
+    min-width: 25%;
+    display: inline;
+    object-fit: cover;
+}
+
+.mainRow {
+    min-height: calc(100vh - 80px);
+    padding: 5px;
+    margin-top: 10px;
+}

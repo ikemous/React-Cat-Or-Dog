@@ -8,12 +8,13 @@ router.route("/user/add/friend").put(userController.updateFriends);
 
 router.route("/user/find/friends").post(userController.getUserFriends);
 
+router.route("/user/find/friend").post(userController.getUserFriend);
+
 router.post("/user/login", passport.authenticate("local"), ({ user }, res) => {
     if (user) return res.json({status: "Logged in", email: user[0].email, _id: user[0]._id});
 });
 
 router.get("/user/verify", ({user}, res) => {
-    console.log(user);
     if(user) return res.json({status: "Logged in", email: user[0].email, _id: user[0]._id});
     res.json(null);
 });

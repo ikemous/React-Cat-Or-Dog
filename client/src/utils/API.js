@@ -14,8 +14,10 @@ export default {
         return axios.put("/user/add/friend", information);
     },
     getFriends(userId) {
-        console.log(userId);
         return axios.post("/user/find/friends", userId);
+    },
+    getFriend(information) {
+        return axios.post("/user/find/friend", information);
     },
     logoutUser() {
         return axios.get("/user/signout");

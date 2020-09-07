@@ -23,4 +23,14 @@ module.exports = {
         .then(result => res.json(result.matches))
         .catch(error => res.json(error));
     },
+    getUserFriend({body}, res) {
+        User.findById(
+            {_id: body._id},
+            (err, doc) => {
+                if(err) return res.json(err);
+                for(let i = 0; i < doc.matches.length; i++)
+                    if(doc.matches[0]._id) return res.json(doc.matches[i]);
+            }
+        )
+    },
 }
