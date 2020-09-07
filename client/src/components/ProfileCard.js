@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "./profileCard.css";
 
-function ProfileCard({ animal, handleClick })
+function ProfileCard({ animal, handleClick, userFriend })
 {
     return (
         <Card className="profileCard">
@@ -18,8 +18,21 @@ function ProfileCard({ animal, handleClick })
                 <Card.Text>
                     {animal.bio || "Loading Bio"}
                 </Card.Text>
-                <Button className="leftButton" name="left" onClick={handleClick}>Left</Button>
-                <Button className="rightButton" name="right" onClick={handleClick}>Right</Button>
+                {userFriend? 
+                        <Button 
+                            variant="danger" 
+                            className="deleteButton" 
+                            name="delete" 
+                            onClick={handleClick}
+                        >
+                            Delete Friend
+                        </Button>
+                    :
+                        <>
+                            <Button className="leftButton" name="left" onClick={handleClick}>Left</Button>
+                            <Button className="rightButton" name="right" onClick={handleClick}>Right</Button>
+                        </>
+                    }
             </Card.Body>
         </Card>
     )
