@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Form } from "react-bootstrap";
 import "./profileCard.css";
 
 function ProfileCard({ animal, handleClick, userFriend })
@@ -16,7 +16,8 @@ function ProfileCard({ animal, handleClick, userFriend })
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{animal.gender|| "Unknown"} - {animal.age || "Unknown"}</Card.Subtitle>
                 <Card.Text>
-                    {animal.bio || "Loading Bio"}
+                    <Form.Control className="animalBio" as="textarea" value={animal.bio || "Loading Bio"} />
+                    {/* {animal.bio || "Loading Bio"} */}
                 </Card.Text>
                 {userFriend? 
                         <Button 
