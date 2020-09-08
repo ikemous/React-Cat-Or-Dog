@@ -34,12 +34,12 @@ module.exports = {
             }
         )
     },
-    deleteFriend({body}, res) {
+    deleteFriend({query}, res) {
         User.findByIdAndUpdate(
-            {_id: body._id},
-            {$pull: {"matches": {_id: body.animalId}}}
+            {_id: query._id},
+            {$pull: {"matches": {_id: query.animalId}}}
         )
         .then(() => res.json({"status":"Sucess"}))
-        .catch(error => res.json(error));
+        .catch(() => res.json({"status":"Error :("}));
     }
 }

@@ -20,7 +20,9 @@ export default {
         return axios.post("/user/find/friend", information);
     },
     deleteFriend(information) {
-        return axios.delete("/user/delete/friend", information);
+        return axios.delete("/user/delete/friend", {
+            params: information
+        });
     },
     logoutUser() {
         return axios.get("/user/signout");
