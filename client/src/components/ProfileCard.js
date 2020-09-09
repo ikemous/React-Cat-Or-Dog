@@ -16,7 +16,12 @@ function ProfileCard({ animal, handleClick, userFriend })
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{animal.gender|| "Unknown"} - {animal.age || "Unknown"}</Card.Subtitle>
                 <Card.Text>
-                    <Form.Control className="animalBio" as="textarea" value={animal.bio || "Loading Bio"} />
+                    <Form.Control 
+                        className="animalBio" 
+                        as="textarea" 
+                        value={animal.bio || "Loading Bio"} 
+                        readOnly
+                    />
                     {/* {animal.bio || "Loading Bio"} */}
                 </Card.Text>
                 {userFriend? 

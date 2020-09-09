@@ -16,6 +16,20 @@
     height: calc(30vh - 80px);
 }
 
+.deleteButton { 
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+}
+
+.animalBio {
+    resize: none;
+    border: none;
+    text-align: center;
+    background: none!important;
+}
+
 .city {
     color:white;
     font-weight: bolder;
