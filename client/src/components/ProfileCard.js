@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Form } from "react-bootstrap";
 import "./profileCard.css";
 
-function ProfileCard({ animal, handleClick })
+function ProfileCard({ animal, handleClick, userFriend })
 {
     return (
         <Card className="profileCard">
@@ -16,10 +16,24 @@ function ProfileCard({ animal, handleClick })
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{animal.gender|| "Unknown"} - {animal.age || "Unknown"}</Card.Subtitle>
                 <Card.Text>
-                    {animal.bio || "Loading Bio"}
+                    <Form.Control className="animalBio" as="textarea" value={animal.bio || "Loading Bio"} />
+                    {/* {animal.bio || "Loading Bio"} */}
                 </Card.Text>
-                <Button className="leftButton" name="left" onClick={handleClick}>Left</Button>
-                <Button className="rightButton" name="right" onClick={handleClick}>Right</Button>
+                {userFriend? 
+                        <Button 
+                            variant="danger" 
+                            className="deleteButton" 
+                            name="delete" 
+                            onClick={handleClick}
+                        >
+                            Delete Friend
+                        </Button>
+                    :
+                        <>
+                            <Button className="leftButton" name="left" onClick={handleClick}>Left</Button>
+                            <Button className="rightButton" name="right" onClick={handleClick}>Right</Button>
+                        </>
+                    }
             </Card.Body>
         </Card>
     )

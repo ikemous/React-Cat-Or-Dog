@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import API from "./utils/API.js";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import TotallyAwesomeNavbar from "./components/TotallyAwesomeNavbar.js";
-import FriendsPage from "./pages/FriendsPage.js";
+import ProfilePage from "./pages/ProfilePage.js";
 import SettingsPage from "./pages/SettingsPage.js";
 import WelcomePage from "./pages/WelcomePage.js";
 import SwipingPage from "./pages/SwipingPage.js";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import FriendsPage from "./pages/FriendsPage.js";
 import LoginPage from "./pages/LoginPage.js";
 import SignupPage from "./pages/SignupPage.js";
+import API from "./utils/API.js";
 import "./App.css";
 
 function App()
@@ -32,6 +33,9 @@ function App()
             </Route>
             <Route exact path="/profile/friends">
               {user? <FriendsPage user={user}/>: <Redirect to="/login" />}
+            </Route>
+            <Route exact path="/profile/friends/:id">
+              {user? <ProfilePage user={user}/>: <Redirect to="/login" />}
             </Route>
             <Route exact path="/swipe">
               {user? <SwipingPage user={user} />: <Redirect to="/login" />}

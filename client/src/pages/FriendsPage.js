@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import uuid from "react-uuid";
+import { Link } from "react-router-dom";
 import API from "../utils/API.js";
-import { ListGroup, Image, Container, Col, Row } from "react-bootstrap";
+import { ListGroup, Image, Container, Row } from "react-bootstrap";
+import "./friendsPage.css";
 
 function FriendsPage({ user }) {
     
     const [friends, setFriends] = useState([]);
 
     useEffect(() => {
-        console.log(user);
         API.getFriends({_id: user._id})
         .then(({data}) => {console.log(data);setFriends(data)})
         .catch(error => console.log(error));
@@ -16,28 +16,26 @@ function FriendsPage({ user }) {
 
     return (
         <Container>
-            <Row>
-                <ListGroup style={{textAlign: "center"}}>
-                    {friends.map(friend =>
-                        <ListGroup.Item key={uuid()}>
-                            <Row>
-                                <Col sm={12} md={4} lg={4}>
+            <Row className="mainRow md-auto">
+                {friends.length > 0? 
+                    <ListGroup style={{width: "100%"}}>
+                        {friends.map(friend =>
+                            <Link to={`/profile/friends/${friend._id}`} key={friend._id}>
+                                <ListGroup.Item>
                                     <Image 
-                                        style={{maxWidth: "100%", minWidth: "100%"}} 
+                                        className="friendImage"
+                                        style={{maxWidth: "25%", minWidth: "25%", display: "inline"}} 
                                         src={friend.imageUrl} 
                                         roundedCircle     
                                     />
-                                </Col>
-                                <Col sm={12} md={4} lg={4}>
-                                    <h2>{friend.title}.{friend.first}</h2>
-                                </Col>
-                                <Col sm={12} md={4} lg={4}>
-                                    <h2>{friend.city}, {friend.country}</h2>
-                                </Col>
-                            </Row>
-                        </ListGroup.Item>)
-                    }
-                </ListGroup>
+                                    <h2 className="friendName">{friend.first}</h2>
+                                </ListGroup.Item>
+                            </Link>
+                        )}
+                    </ListGroup>
+                    :
+                    <h1>No Friends Found :(</h1>
+                }
             </Row>
         </Container>
     )
