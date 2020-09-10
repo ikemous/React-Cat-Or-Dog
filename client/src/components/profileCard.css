@@ -24,11 +24,22 @@
 }
 
 .animalBio {
+    cursor: auto;
     resize: none;
     border: none;
     text-align: center;
     background: none!important;
 }
+
+/* .animalBio::-webkit-scrollbar {
+    -webkit-appearance: visible;
+    width: 7px;
+}
+
+.animalBio::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+} */
 
 .city {
     color:white;

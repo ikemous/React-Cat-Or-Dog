@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button, Form } from "react-bootstrap";
-import { FaThumbsDown, FaThumbsUp } from "react-icons";
+import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 import "./profileCard.css";
 
 function ProfileCard({ animal, handleClick, userFriend })
@@ -23,7 +23,6 @@ function ProfileCard({ animal, handleClick, userFriend })
                         value={animal.bio || "Loading Bio"} 
                         readOnly
                     />
-                    {/* {animal.bio || "Loading Bio"} */}
                 </Card.Text>
                 {userFriend? 
                         <Button 
@@ -36,8 +35,22 @@ function ProfileCard({ animal, handleClick, userFriend })
                         </Button>
                     :
                         <>
-                            <Button className="leftButton" name="left" onClick={handleClick}>Left</Button>
-                            <Button className="rightButton" name="right" onClick={handleClick}>Right</Button>
+                            <Button 
+                                className="leftButton" 
+                                name="left"
+                                variant="danger"
+                                onClick={handleClick}
+                            >
+                                <FaThumbsDown />
+                            </Button>
+                            <Button 
+                                className="rightButton" 
+                                name="right"
+                                variant="success"
+                                onClick={handleClick}
+                            >
+                                <FaThumbsUp />
+                            </Button>
                         </>
                     }
             </Card.Body>

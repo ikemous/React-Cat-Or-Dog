@@ -21,10 +21,9 @@ function FriendsPage({ user }) {
                     <ListGroup style={{width: "100%"}}>
                         {friends.map(friend =>
                             <Link to={`/profile/friends/${friend._id}`} key={friend._id}>
-                                <ListGroup.Item>
+                                <ListGroup.Item className="friendItem">
                                     <Image 
                                         className="friendImage"
-                                        style={{maxWidth: "25%", minWidth: "25%", display: "inline"}} 
                                         src={friend.imageUrl} 
                                         roundedCircle     
                                     />
