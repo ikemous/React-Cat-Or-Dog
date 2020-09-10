@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import API from "../utils/API.js";
+import React from "react";
+// import API from "../utils/API.js";
 
 function SettingsPage() {
 

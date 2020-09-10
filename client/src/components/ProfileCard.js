@@ -12,10 +12,10 @@ function ProfileCard({ animal, handleClick, userFriend })
                 <Card.Title className="city">{animal.city?`${animal.city}, ${animal.country}`:"Loading"}</Card.Title>
             </Card.ImgOverlay>
             <Card.Body className="profileBody">
-                <Card.Title>
+                <Card.Title className="animalName">
                     {animal.title?`${animal.title}. ${animal.first} ${animal.last}` : "Loading Name"}
                 </Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{animal.gender|| "Unknown"} - {animal.age || "Unknown"}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted animalDetails">{animal.gender|| "Unknown"} - {animal.age || "Unknown"}</Card.Subtitle>
                 <Card.Text>
                     <Form.Control 
                         className="animalBio" 
