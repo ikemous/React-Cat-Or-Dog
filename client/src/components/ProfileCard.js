@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button, Form } from "react-bootstrap";
+import { FaThumbsDown, FaThumbsUp } from "react-icons";
 import "./profileCard.css";
 
 function ProfileCard({ animal, handleClick, userFriend })
