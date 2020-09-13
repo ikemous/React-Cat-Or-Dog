@@ -35,7 +35,8 @@ function SwipingPage({ user })
     }, []);
 
     const handleClick = ({target}) => {
-        if( target.name === "left") return queryNewProfile();
+        console.log(target.getAttribute("data-name"));
+        if( target.name === "left" || target.getAttribute("data-name") === "left") return queryNewProfile();
         const randomNumber = Math.floor(Math.random() * 5);
         if ( randomNumber === 3){ 
             console.log("%c You've Been Friended!\n", "color:orange;");

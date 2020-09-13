@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Button, Form } from "react-bootstrap";
-import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 import "./profileCard.css";
 
 function ProfileCard({ animal, handleClick, userFriend })
@@ -12,10 +11,10 @@ function ProfileCard({ animal, handleClick, userFriend })
                 <Card.Title className="city">{animal.city?`${animal.city}, ${animal.country}`:"Loading"}</Card.Title>
             </Card.ImgOverlay>
             <Card.Body className="profileBody">
-                <Card.Title className="animalName">
+                <Card.Title>
                     {animal.title?`${animal.title}. ${animal.first} ${animal.last}` : "Loading Name"}
                 </Card.Title>
-                <Card.Subtitle className="mb-2 text-muted animalDetails">{animal.gender|| "Unknown"} - {animal.age || "Unknown"}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">{animal.gender|| "Unknown"} - {animal.age || "Unknown"}</Card.Subtitle>
                 <Card.Text>
                     <Form.Control 
                         className="animalBio" 
@@ -41,7 +40,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                                 variant="danger"
                                 onClick={handleClick}
                             >
-                                <FaThumbsDown />
+                                <i data-name="left" class="far fa-thumbs-down" />
                             </Button>
                             <Button 
                                 className="rightButton" 
@@ -49,7 +48,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                                 variant="success"
                                 onClick={handleClick}
                             >
-                                <FaThumbsUp />
+                                <i data-name="right" class="far fa-thumbs-up" />
                             </Button>
                         </>
                     }
