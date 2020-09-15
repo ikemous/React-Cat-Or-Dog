@@ -34,11 +34,6 @@ function ProfilePage({ user, history }) {
                     size="lg"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
-                    style={
-                        animal.gender === "male"? {background: "#6ca0dc"}
-                        : animal.gender === "female"? {background: "#f8b9d4"}
-                        : {background: "white"}
-                    } 
                 >
                     <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">
