@@ -6,7 +6,14 @@ import "./profileCard.css";
 function ProfileCard({ animal, handleClick, userFriend })
 {
     return (
-        <Card className="profileCard">
+        <Card 
+            style={
+                    animal.gender === "male"? {background: "#6ca0dc"}
+                    : animal.gender === "female"? {background: "#f8b9d4"}
+                    : {background: "white"}
+                  } 
+            className="profileCard"
+        >
             <Card.Img className="profileImage" variant="top" src={animal.imageUrl || "https://via.placeholder.com/450?text=Profile+Image"} />
             <Card.ImgOverlay className="imageOverlay">
                 <Card.Title className="city">{animal.city?`${animal.city}, ${animal.country}`:"Loading"}</Card.Title>

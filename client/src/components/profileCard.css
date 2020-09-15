@@ -58,14 +58,22 @@
     height: 7vh;
 }
 
-@media screen and (min-width: 1024px) {
-    .animalName { 
+@media screen and (min-width: 768px) {
+    .animalName, .city { 
       font-size: 1.75rem;
     }
+
     .animalDetails {
       font-size: 1.5rem;
     }
-  
+
+    .profileImage {
+        object-fit: unset;
+    }
+
+    .animalBio {
+        font-size: 1.25rem;
+    }
     .deleteButton, .leftButton, .rightButton {
       height: 80px!important;
     }

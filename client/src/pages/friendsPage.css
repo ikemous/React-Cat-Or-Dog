@@ -15,19 +15,8 @@
     object-fit: cover;
 }
 
-.friendItem {
-}
-
 .mainRow {
     min-height: calc(100vh - 80px);
     padding: 5px;
     margin-top: 10px;
-}
-
-
-@media only screen and (max-width: 360px) {
-    /* .friendImage {
-        height: 57.75px;
-        max-height: 57.75px;
-    } */
 }
