@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import "./totallyCoolAuthentication.css";
 
 function TotallyCoolAuthentication({ signup, passwordError, emailError, handleChange, handleSubmit }) {
 
@@ -17,7 +18,7 @@ function TotallyCoolAuthentication({ signup, passwordError, emailError, handleCh
                         placeholder="Enter email" 
                         onChange={handleChange} 
                     />
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback className="invalidText" type="invalid">
                         {!signup?"": "Email invalid or already used" }
                     </Form.Control.Feedback>
                 </Form.Group>
@@ -31,7 +32,7 @@ function TotallyCoolAuthentication({ signup, passwordError, emailError, handleCh
                         placeholder="Password" 
                         onChange={handleChange} 
                     />
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback className="invalidText" type="invalid">
                         {!signup?"Email or Password may be incorrect": "Password must be longer than 6 characters"}
                     </Form.Control.Feedback>
                 </Form.Group>

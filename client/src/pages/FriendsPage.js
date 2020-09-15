@@ -16,8 +16,8 @@ function FriendsPage({ user }) {
 
     return (
         <Container>
-            <Row className="mainRow md-auto">
-                {friends.length > 0? 
+            {friends.length > 0? 
+                <Row className="mainRow md-auto ">
                     <ListGroup style={{width: "100%"}}>
                         {friends.map(friend =>
                             <Link to={`/profile/friends/${friend._id}`} key={friend._id}>
@@ -39,13 +39,15 @@ function FriendsPage({ user }) {
                             </Link>
                         )}
                     </ListGroup>
-                    :
-                    <div className="friendless" style={{width: "100%", textAlign: "center"}}>
-                        <h1>No Friends Found :(</h1>
+                </Row>
+                :
+                <Row className="mainRow md-auto align-items-center justify-content-center ">
+                    <div className="friendless col-sm-8" style={{width: "100%", height: "inherit", textAlign: "center"}}>
+                        <h1>😭 No Friends Found 😭</h1>
                         <h2>Click <Link to="/swipe">here</Link> to find some friends!</h2>
                     </div>
-                }
-            </Row>
+                </Row>
+            }
         </Container>
     )
 };
