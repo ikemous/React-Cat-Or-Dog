@@ -40,7 +40,10 @@ function FriendsPage({ user }) {
                         )}
                     </ListGroup>
                     :
-                    <h1>No Friends Found :(</h1>
+                    <div className="friendless" style={{width: "100%", textAlign: "center"}}>
+                        <h1>No Friends Found :(</h1>
+                        <h2>Click <Link to="/swipe">here</Link> to find some friends!</h2>
+                    </div>
                 }
             </Row>
         </Container>
