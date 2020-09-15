@@ -8,11 +8,17 @@
 }
 
 .friendImage {
+    height: -webkit-fill-available;
     max-width: 25%;
     max-height: 150px;
     min-width: 25%;
     display: inline;
     object-fit: cover;
+}
+
+.friendItem {
+    margin: 5px;
+    height: 12vh;
 }
 
 .mainRow {

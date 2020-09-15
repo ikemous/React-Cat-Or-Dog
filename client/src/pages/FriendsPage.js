@@ -21,7 +21,14 @@ function FriendsPage({ user }) {
                     <ListGroup style={{width: "100%"}}>
                         {friends.map(friend =>
                             <Link to={`/profile/friends/${friend._id}`} key={friend._id}>
-                                <ListGroup.Item className="friendItem">
+                                <ListGroup.Item 
+                                    style={
+                                        friend.gender === "male"? {background: "#6ca0dc"}
+                                        : friend.gender === "female"? {background: "#f8b9d4"}
+                                        : {background: "white"}
+                                    } 
+                                    className="friendItem"
+                                >
                                     <Image 
                                         className="friendImage"
                                         src={friend.imageUrl} 
