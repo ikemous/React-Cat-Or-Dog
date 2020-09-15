@@ -47,7 +47,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                                 variant="danger"
                                 onClick={handleClick}
                             >
-                                <i data-name="left" class="far fa-thumbs-down" />
+                                <i data-name="left" className="far fa-thumbs-down" />
                             </Button>
                             <Button 
                                 className="rightButton" 
@@ -55,7 +55,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                                 variant="success"
                                 onClick={handleClick}
                             >
-                                <i data-name="right" class="far fa-thumbs-up" />
+                                <i data-name="right" className="far fa-thumbs-up" />
                             </Button>
                         </>
                     }

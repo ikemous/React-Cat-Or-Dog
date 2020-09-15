@@ -12,16 +12,14 @@ function TotallyAwesomeNavbar({ loggedIn })
     const handleLogout = () => {
         API.logoutUser()
         .then(() => {
-            console.log("%c User Logged Out", "color: orange;");
+            console.log("%c User Logged Out", "color: red;");
             window.location = "/";
         })
         .catch(error => console.log(error));
     };
 
     useEffect(() => {
-        console.log(location);
         setPath(location.pathname);
-        console.log(path);
     }, [location])
 
     return (

@@ -35,7 +35,6 @@ function SwipingPage({ user })
     }, []);
 
     const handleClick = ({target}) => {
-        console.log(target.getAttribute("data-name"));
         if( target.name === "left" || target.getAttribute("data-name") === "left") return queryNewProfile();
         const randomNumber = Math.floor(Math.random() * 5);
         if ( randomNumber === 3){ 
@@ -51,6 +50,11 @@ function SwipingPage({ user })
                 <Row style={{height: "calc(100vh - 80px)"}}>
                     <ProfileCard animal={animal} handleClick={handleClick} />
                     <Modal
+                        style={
+                            animal.gender === "male"? {background: "#6ca0dc"}
+                            : animal.gender === "female"? {background: "#f8b9d4"}
+                            : {background: "white"}
+                        } 
                         show={showModal}
                         onHide={() => setShowModal(false)}
                         size="lg"

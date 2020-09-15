@@ -6,17 +6,22 @@ router.get("/profile", (req, res) => {
     const randomNumber = Math.floor(Math.random() * 2);
     let initialQuery;
     randomNumber===1? initialQuery="https://api.thecatapi.com/v1/images/search":initialQuery="https://dog.ceo/api/breeds/image/random";
-    axios.get(initialQuery)
+    axios.get(initialQuery,{
+        timeout: 3000
+    })
     .then(({ data }) => {
         let image;
         randomNumber===1?image=data[0].url:image=data.message;
         profileInformation = {
             imageUrl: image,
         };
-        axios.get("https://randomuser.me/api/", { headers: {
-            'Content-Length': 0,
-            'Content-Type': ['text/plain', "application/json"]
-        }})
+        axios.get("https://randomuser.me/api/", {  
+            headers: {
+                'Content-Length': 0,
+                'Content-Type': ['text/plain', "application/json"],
+            },
+            timeout: 3000
+        })
           .then(({data:information})=> {
             profileInformation = {
                 ...profileInformation,
@@ -29,7 +34,9 @@ router.get("/profile", (req, res) => {
                 last: information.results[0].name.last,
                 profileSeed: information.info.seed,
             };
-            axios.get("https://icanhazdadjoke.com/slack")
+            axios.get("https://icanhazdadjoke.com/slack", {
+                timeout: 3000
+            })
             .then(joke => {
                 profileInformation = {
                     ...profileInformation,
@@ -38,12 +45,13 @@ router.get("/profile", (req, res) => {
                 res.json(profileInformation);
             })
             .catch(error => {
-                res.json(error);
+                res.redirect("/profile");
+                // res.json(error);
             });
           })
-          .catch(error => res.json(error));
+          .catch(error => res.redirect("/profile"));
     })
-    .catch( error => res.json(error));
+    .catch( error => res.redirect("/profile"));
 });
 
 module.exports = router;
