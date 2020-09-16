@@ -30,7 +30,6 @@ function App()
         <TotallyAwesomeNavbar loggedIn={user?true:false} />
           <Switch>
             <Route exact path={["/", "/home"]} component={WelcomePage} />
-            <Route exact path="/404" component={PageNotFound} />
             <Route exact path="/test" component={UnderConstructionPage} />
             <Route exact path="/profile/settings">
               {!user? <Redirect to="/login" />: <UnderConstructionPage />}
@@ -50,6 +49,7 @@ function App()
             <Route exact path="/signup">
               {user? <Redirect to="/swipe" />: <SignupPage setUser={setUser} />}
             </Route>
+            <Route path="*" component={PageNotFound} />
           </Switch>
       </Router>
     </>
