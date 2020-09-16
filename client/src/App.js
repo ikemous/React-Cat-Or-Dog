@@ -8,6 +8,8 @@ import SwipingPage from "./pages/SwipingPage.js";
 import FriendsPage from "./pages/FriendsPage.js";
 import LoginPage from "./pages/LoginPage.js";
 import SignupPage from "./pages/SignupPage.js";
+import PageNotFound from "./pages/PageNotFound.js";
+import UnderConstructionPage from "./pages/UnderContructionPage.js";
 import API from "./utils/API.js";
 import "./App.css";
 
@@ -28,8 +30,10 @@ function App()
         <TotallyAwesomeNavbar loggedIn={user?true:false} />
           <Switch>
             <Route exact path={["/", "/home"]} component={WelcomePage} />
+            <Route exact path="/404" component={PageNotFound} />
+            <Route exact path="/test" component={UnderConstructionPage} />
             <Route exact path="/profile/settings">
-              {!user? <Redirect to="/login" />: <SettingsPage />}
+              {!user? <Redirect to="/login" />: <UnderConstructionPage />}
             </Route>
             <Route exact path="/profile/friends">
               {user? <FriendsPage user={user}/>: <Redirect to="/login" />}

@@ -10,7 +10,7 @@ function FriendsPage({ user }) {
 
     useEffect(() => {
         API.getFriends({_id: user._id})
-        .then(({data}) => {console.log(data);setFriends(data)})
+        .then(({data}) => setFriends(data))
         .catch(error => console.log(error));
     }, [])
 
