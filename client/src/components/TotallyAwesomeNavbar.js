@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API.js";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, withRouter } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
 
-function TotallyAwesomeNavbar({ loggedIn })
+function TotallyAwesomeNavbar({ loggedIn, history })
 {
     
     let location = useLocation();
@@ -33,9 +33,9 @@ function TotallyAwesomeNavbar({ loggedIn })
                     <Nav>
                         {loggedIn?
                             <>
-                                <Nav.Link href="/swipe" className={path==="/swipe"?"active":""}>Search</Nav.Link>
-                                <Nav.Link as={Link} to="/profile/settings" className={path==="/profile/settings"?"active":""}>Settings</Nav.Link>
-                                <Nav.Link as={Link} to="/profile/friends" className={path==="/profile/friends"?"active":""}>Friends</Nav.Link>
+                                <Nav.Link as={Link} to="/swipe" href="#/swipe" className={path==="/swipe"?"active":""}>Search</Nav.Link>
+                                <Nav.Link as={Link} to="/profile/settings" href="#/profile/settings" className={path==="/profile/settings"?"active":""}>Settings</Nav.Link>
+                                <Nav.Link as={Link} to="/profile/friends" href="#/profile/friends" className={path==="/profile/friends"?"active":""}>Friends</Nav.Link>
                                 <Nav.Link as={Button} variant="danger" onClick={handleLogout}>Logout</Nav.Link>
                             </>
                             :
@@ -51,4 +51,4 @@ function TotallyAwesomeNavbar({ loggedIn })
     )
 }
 
-export default TotallyAwesomeNavbar;
+export default withRouter(TotallyAwesomeNavbar);
