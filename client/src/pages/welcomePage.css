@@ -1,0 +1,4 @@
+.slideShow {
+    height: 80vh; 
+    height: -webkit-fill-available;
+}
