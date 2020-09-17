@@ -20,7 +20,7 @@ function App()
   useEffect(()=> {
     API.verifyUser()
     .then(({data}) => setUser(data))
-    .catch(error => console.log(error));
+    .catch(() => console.log("%c error: User Verification Failed", "color:red;"));
   },[]);
 
   return (

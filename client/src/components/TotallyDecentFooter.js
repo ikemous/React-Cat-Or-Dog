@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookSquare, FaGithubSquare, FaTwitterSquare, FaGlobe } from "react-icons/fa";
+import "./totallyDecentFooter.css";
 
 function TotallyDecentFooter() {
     return (
@@ -11,7 +12,7 @@ function TotallyDecentFooter() {
 
                     <h5 className="text-uppercase">API's</h5>
 
-                    <ul className="list-unstyled">
+                    <ul className="list-unstyled footerList">
                         <li>
                             <a href="https://dog.ceo/dog-api/" rel="noopener noreferrer" target="_blank">Dog Pictures API</a>
                         </li>
@@ -32,7 +33,7 @@ function TotallyDecentFooter() {
 
                     <h5 className="text-uppercase">Creator Links</h5>
 
-                    <ul className="list-unstyled">
+                    <ul className="list-unstyled footerList">
                     <li>
                         <FaFacebookSquare /> <a href="fb.gg/ikemous">/Ikemous</a>
                     </li>

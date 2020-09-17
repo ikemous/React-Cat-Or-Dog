@@ -23,7 +23,7 @@ function TotallyAwesomeNavbar({ loggedIn, history })
     }, [location])
 
     return (
-        <>
+        <header>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Navbar.Brand href="/">Aninder</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -47,7 +47,7 @@ function TotallyAwesomeNavbar({ loggedIn, history })
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        </>
+        </header>
     )
 }
 

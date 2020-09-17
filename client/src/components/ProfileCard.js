@@ -13,7 +13,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                   } 
             className="profileCard"
         >
-            <Card.Img className="profileImage" variant="top" src={animal.imageUrl || "https://via.placeholder.com/450?text=Profile+Image"} />
+            <Card.Img className="profileImage" variant="top" alt="Animal displayed for user" src={animal.imageUrl || "https://via.placeholder.com/450?text=Profile+Image"} />
             <Card.ImgOverlay className="imageOverlay">
                 <Card.Title className="city">{animal.city?`${animal.city}, ${animal.country}`:"Loading"}</Card.Title>
             </Card.ImgOverlay>
@@ -32,6 +32,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                 </Card.Text>
                 {userFriend? 
                         <Button 
+                            aria-label="Delete button"
                             variant="danger" 
                             className="deleteButton" 
                             name="delete" 
@@ -42,6 +43,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                     :
                         <>
                             <Button 
+                                aria-label="Thumb down button"
                                 className="leftButton" 
                                 name="left"
                                 variant="danger"
@@ -50,6 +52,7 @@ function ProfileCard({ animal, handleClick, userFriend })
                                 <i data-name="left" className="far fa-thumbs-down" />
                             </Button>
                             <Button 
+                                aria-label="Thumb up button"
                                 className="rightButton" 
                                 name="right"
                                 variant="success"
