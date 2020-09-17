@@ -43,7 +43,7 @@ function FriendsPage({ user }) {
                 :
                 <Row className="mainRow md-auto align-items-center justify-content-center ">
                     <div className="friendless col-sm-8" style={{width: "100%", height: "inherit", textAlign: "center"}}>
-                        <h1>😭 No Friends Found 😭</h1>
+                        <h1><span role="img" aria-label="crying emoji">😭</span> No Friends Found <span role="img" aria-label="crying emoji">😭</span></h1>
                         <h2>Click <Link to="/swipe">here</Link> to find some friends!</h2>
                     </div>
                 </Row>

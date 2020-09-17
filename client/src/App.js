@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import TotallyAwesomeNavbar from "./components/TotallyAwesomeNavbar.js";
 import ProfilePage from "./pages/ProfilePage.js";
-import SettingsPage from "./pages/SettingsPage.js";
 import WelcomePage from "./pages/WelcomePage.js";
 import SwipingPage from "./pages/SwipingPage.js";
 import FriendsPage from "./pages/FriendsPage.js";
