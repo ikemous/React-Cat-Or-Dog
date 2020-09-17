@@ -1,5 +1,5 @@
 import React from "react";
-import TotallyDecentFooter from "../components/Footer.js"
+import TotallyDecentFooter from "../components/TotallyDecentFooter.js"
 import layingDawg from "../components/images/picture1.jpg";
 import toungeDawg from "../components/images/picture7.jpg";
 import yellowDawg from "../components/images/picture4.jpg";

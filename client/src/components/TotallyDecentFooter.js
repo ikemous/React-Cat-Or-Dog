@@ -4,9 +4,9 @@ import { FaFacebookSquare, FaGithubSquare, FaTwitterSquare, FaGlobe } from "reac
 function TotallyDecentFooter() {
     return (
         <footer className="page-footer pt-4">       
-            <div class="container-fluid text-center text-md-left">
-                <div class="row">
-                    <hr class="clearfix w-100 d-md-none pb-3" />
+            <div className="container-fluid text-center text-md-left">
+                <div className="row">
+                    <hr className="clearfix w-100 d-md-none pb-3" />
                     <div className="col-md-3 mb-md-0 mb-3">
 
                     <h5 className="text-uppercase">API's</h5>
@@ -28,11 +28,11 @@ function TotallyDecentFooter() {
 
                 </div>
 
-                    <div class="col-md-3 mb-md-0 mb-3">
+                    <div className="col-md-3 mb-md-0 mb-3">
 
-                    <h5 class="text-uppercase">Creator Links</h5>
+                    <h5 className="text-uppercase">Creator Links</h5>
 
-                    <ul class="list-unstyled">
+                    <ul className="list-unstyled">
                     <li>
                         <FaFacebookSquare /> <a href="fb.gg/ikemous">/Ikemous</a>
                     </li>
