@@ -1,15 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Aninder",
+  "name": "Aninder",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "aninderIcon.jpg",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#A0522D",
+  "background_color": "#A0522D"
 }
