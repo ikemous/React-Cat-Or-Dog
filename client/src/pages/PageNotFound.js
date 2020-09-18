@@ -1,5 +1,5 @@
 import React from "react";
-import dawgNotFound from "../components/images/picture3.jpg"
+import dawgNotFound from "../utils/images/picture3.jpg"
 import { Link } from "react-router-dom";
 import { Container, Row, Image } from "react-bootstrap";
 

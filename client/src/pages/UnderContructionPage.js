@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Image } from "react-bootstrap"
-import partyDawg from "../components/images/picture8.jpg";
+import partyDawg from "../utils/images/picture8.jpg";
 
 function UnderConstruction()
 {

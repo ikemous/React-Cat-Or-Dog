@@ -1,10 +1,11 @@
 import React from "react";
 import TotallyDecentFooter from "../components/TotallyDecentFooter.js"
-import layingDawg from "../components/images/picture1.jpg";
-import toungeDawg from "../components/images/picture7.jpg";
-import yellowDawg from "../components/images/picture4.jpg";
-import smallDawg from "../components/images/picture5.jpg";
-import catsCATS from "../components/images/picture6.jpg";
+import layingDawg from "../utils/images/picture1.jpg";
+import uglyDawg from "../utils/images/kru2.jpg";
+import toungeDawg from "../utils/images/picture7.jpg";
+import yellowDawg from "../utils/images/picture4.jpg";
+import smallDawg from "../utils/images/picture5.jpg";
+import catsCATS from "../utils/images/picture6.jpg";
 import { Container, Carousel, Row, Alert } from "react-bootstrap";
 
 function WelcomePage()
@@ -58,6 +59,14 @@ function WelcomePage()
                                 style={{height: "45vh"}}
                                 className="d-block w-100 slideImage"
                                 src={smallDawg}
+                                alt="Third slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                style={{height: "45vh"}}
+                                className="d-block w-100 slideImage"
+                                src={uglyDawg}
                                 alt="Third slide"
                             />
                         </Carousel.Item>
