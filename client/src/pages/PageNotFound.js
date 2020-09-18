@@ -10,7 +10,7 @@ function PageNotFound()
             <Row style={{height: "inherit"}} className="text-center align-items-center justify-content-center">
                 <div>
                     <h1>Hello There!</h1>
-                    <Image style={{maxHeight: "50vh", maxWidth: "50vh" }} src={dawgNotFound} rounded />
+                    <Image style={{maxHeight: "50vh", maxWidth: "50vh" }} alt="Dog hiding between blaknets" src={dawgNotFound} rounded />
                     <h2>This Is Not The Page You're Looking For. <Link to="/">Go Home</Link></h2>
                 </div>
             </Row>

@@ -51,7 +51,7 @@ function WelcomePage()
                                 style={{height: "45vh"}}
                                 className="d-block w-100 slideImage"
                                 src={catsCATS}
-                                alt="Third slide"
+                                alt="Fourth slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
@@ -59,15 +59,7 @@ function WelcomePage()
                                 style={{height: "45vh"}}
                                 className="d-block w-100 slideImage"
                                 src={smallDawg}
-                                alt="Third slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                style={{height: "45vh"}}
-                                className="d-block w-100 slideImage"
-                                src={uglyDawg}
-                                alt="Third slide"
+                                alt="Fifth slide"
                             />
                         </Carousel.Item>
                     </Carousel>
