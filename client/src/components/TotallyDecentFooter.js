@@ -35,7 +35,7 @@ function TotallyDecentFooter() {
 
                     <ul className="list-unstyled footerList">
                     <li>
-                        <FaFacebookSquare /> <a href="fb.gg/ikemous">/Ikemous</a>
+                        <FaFacebookSquare /> <a href="https://facebook.com/ikemous">/Ikemous</a>
                     </li>
                     <li>
                         <FaGithubSquare /> <a href="https://github.com/ikemous" rel="noopener noreferrer" target="_blank">/ikemous</a>
